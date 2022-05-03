@@ -1,32 +1,21 @@
-import type {
-  LinksFunction,
-  LoaderFunction,
-  MetaFunction,
-} from "@remix-run/node";
-import { json } from "@remix-run/node";
-import {
-  Links,
-  LiveReload,
-  Meta,
-  Outlet,
-  Scripts,
-  ScrollRestoration,
-} from "@remix-run/react";
+import type { LinksFunction, LoaderFunction, MetaFunction } from '@remix-run/node';
+import { json } from '@remix-run/node';
+import { Links, LiveReload, Meta, Outlet, Scripts, ScrollRestoration } from '@remix-run/react';
 
-import tailwindStylesheetUrl from "./styles/tailwind.css";
-import { getUser } from "./session.server";
+import tailwindStylesheetUrl from './styles/tailwind.css';
+import { getUser } from './session.server';
 
 export const meta: MetaFunction = () => {
-  return { title: "New Remix App" };
+  return { title: 'Goongava' };
 };
 
 export const links: LinksFunction = () => {
-  return [{ rel: "stylesheet", href: tailwindStylesheetUrl }];
+  return [{ rel: 'stylesheet', href: tailwindStylesheetUrl }];
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
   return json({
-    user: await getUser(request),
+    user: await getUser(request)
   });
 };
 
